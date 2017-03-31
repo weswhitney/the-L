@@ -10,7 +10,6 @@ var vegetables = [
 ];
 
 app.get("/", function(req, res) {
-	// res.send("hello world");
 	res.render('index', {name: "Elie"});
 });
 
@@ -23,8 +22,9 @@ app.get("/hello/:name", function(req, res) {
 });
 
 app.get("/hi", function(req, res) {
+	var otherName = req.query.otherName;
 	var name = req.query.name;
-	res.send("Hello, " + name);
+	res.send("Hello, " + name + "and " + otherName);
 });
 
 app.listen(3000, function () {
