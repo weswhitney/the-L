@@ -1,13 +1,17 @@
 var express = require('express');
 var app = express();
+var calculator = require('./calculator');
 
 app.set('view engine', 'ejs');
+
+app.use('/calculator', calculator);
 
 var vegetables = [
 	"Carrots",
 	"Cucumber",
 	"Peas"
 ];
+
 
 app.get("/", function(req, res) {
 	res.render('index', {name: "Elie"});
