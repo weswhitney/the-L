@@ -27,20 +27,40 @@ app.get("/hi", function(req, res) {
 	res.send("Hello, " + name + "and " + otherName);
 });
 
-app.get("/add", function(req, res) {
-	res.send('add function');
+app.get("/add/:num1/:num2", function(req, res) {
+	var param1 = req.params.num1;
+	var param2 = req.params.num2;
+	var number1 = parseInt(param1);
+	var number2 = parseInt(param2);
+	var result = number1 + number2;
+	res.send(result.toString());
 });
 
-app.get("/sub", function(req, res) {
-	res.send('sub function');
+app.get("/sub/:num1/:num2", function(req, res) {
+	var param1 = req.params.num1;
+	var param2 = req.params.num2;
+	var number1 = parseInt(param1);
+	var number2 = parseInt(param2);
+	var result = number1 - number2;
+	res.send(result.toString());
 });
 
-app.get("/mult", function(req, res) {
-	res.send('mult function');
+app.get("/mult/:num1/:num2", function(req, res) {
+	var param1 = req.params.num1;
+	var param2 = req.params.num2;
+	var number1 = parseInt(param1);
+	var number2 = parseInt(param2);
+	var result = number1 * number2;
+	res.send(result.toString());
 });
 
-app.get("/div", function(req, res) {
-	res.send('add function');
+app.get("/div/:num1/:num2", function(req, res) {
+	var param1 = req.params.num1;
+	var param2 = req.params.num2;
+	var number1 = parseInt(param1);
+	var number2 = parseInt(param2);
+	var result = number1 / number2;
+	res.send(result.toString());
 });
 
 // listen on port 3000
