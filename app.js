@@ -27,7 +27,23 @@ app.get("/hi", function(req, res) {
 	res.send("Hello, " + name + "and " + otherName);
 });
 
+app.get("/add", function(req, res) {
+	res.send('add function');
+});
+
+app.get("/sub", function(req, res) {
+	res.send('sub function');
+});
+
+app.get("/mult", function(req, res) {
+	res.send('mult function');
+});
+
+app.get("/div", function(req, res) {
+	res.send('add function');
+});
+
+// listen on port 3000
 app.listen(3000, function () {
 	console.log("starting server on localhost:3000");
 });
-
