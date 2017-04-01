@@ -4,14 +4,11 @@ var calculator = require('./calculator');
 
 app.set('view engine', 'ejs');
 
-app.use('/calculator', calculator);
-
 var vegetables = [
 	"Carrots",
 	"Cucumber",
 	"Peas"
 ];
-
 
 app.get("/", function(req, res) {
 	res.render('index', {name: "Elie"});
@@ -31,41 +28,44 @@ app.get("/hi", function(req, res) {
 	res.send("Hello, " + name + "and " + otherName);
 });
 
-app.get("/add/:num1/:num2", function(req, res) {
-	var param1 = req.params.num1;
-	var param2 = req.params.num2;
-	var number1 = parseInt(param1);
-	var number2 = parseInt(param2);
-	var result = number1 + number2;
-	res.send(result.toString());
-});
+// use only one route instead of 4
+app.use('/calculator', calculator);
 
-app.get("/sub/:num1/:num2", function(req, res) {
-	var param1 = req.params.num1;
-	var param2 = req.params.num2;
-	var number1 = parseInt(param1);
-	var number2 = parseInt(param2);
-	var result = number1 - number2;
-	res.send(result.toString());
-});
+// app.get("/add/:num1/:num2", function(req, res) {
+// 	var param1 = req.params.num1;
+// 	var param2 = req.params.num2;
+// 	var number1 = parseInt(param1);
+// 	var number2 = parseInt(param2);
+// 	var result = number1 + number2;
+// 	res.send(result.toString());
+// });
 
-app.get("/mult/:num1/:num2", function(req, res) {
-	var param1 = req.params.num1;
-	var param2 = req.params.num2;
-	var number1 = parseInt(param1);
-	var number2 = parseInt(param2);
-	var result = number1 * number2;
-	res.send(result.toString());
-});
-
-app.get("/div/:num1/:num2", function(req, res) {
-	var param1 = req.params.num1;
-	var param2 = req.params.num2;
-	var number1 = parseInt(param1);
-	var number2 = parseInt(param2);
-	var result = number1 / number2;
-	res.send(result.toString());
-});
+// app.get("/sub/:num1/:num2", function(req, res) {
+// 	var param1 = req.params.num1;
+// 	var param2 = req.params.num2;
+// 	var number1 = parseInt(param1);
+// 	var number2 = parseInt(param2);
+// 	var result = number1 - number2;
+// 	res.send(result.toString());
+// });
+//
+// app.get("/mult/:num1/:num2", function(req, res) {
+// 	var param1 = req.params.num1;
+// 	var param2 = req.params.num2;
+// 	var number1 = parseInt(param1);
+// 	var number2 = parseInt(param2);
+// 	var result = number1 * number2;
+// 	res.send(result.toString());
+// });
+//
+// app.get("/div/:num1/:num2", function(req, res) {
+// 	var param1 = req.params.num1;
+// 	var param2 = req.params.num2;
+// 	var number1 = parseInt(param1);
+// 	var number2 = parseInt(param2);
+// 	var result = number1 / number2;
+// 	res.send(result.toString());
+// });
 
 // listen on port 3000
 app.listen(3000, function () {
