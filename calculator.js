@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-	res.send('calculator');
+	res.render('calculator');
 });
 
 router.get('/add/:num1/:num2', function(req, res) {
@@ -11,7 +11,8 @@ router.get('/add/:num1/:num2', function(req, res) {
 		var number1 = parseFloat(param1);
 		var number2 = parseFloat(param2);
 		var result = number1 + number2;
-		res.send(result.toString());
+		var strResult = result.toString();
+		res.render('calculator', {result: strResult});
 });
 
 router.get('/sub/:num1/:num2', function(req, res) {
